@@ -13,16 +13,17 @@ ie
 /run_analysis.R
 /UCI HAR Dataset
 
-read the test and training sets into variables (X_train.txt and X_test.txt)
+read the test and training sets (X_train.txt and X_test.txt) into variables training_set and test_set
+read activity labels into training_labels and test_labels
 
-merge with the activity labels using cbind
+merge the labels into the sets using cbind
 
-combine the two using rbind
+combine the test and training sets using rbind
 
-create vector of cols measuring means and std dev + activity labels (final column)
+create vector of cols measuring means and std dev + activity labels 
 using only mean() and std() measurements
 
-used the following columns:
+vector col_nums contains column numbers from selected columns below:
 
 1 tBodyAcc-mean()-X
 2 tBodyAcc-mean()-Y
@@ -113,15 +114,14 @@ used the following columns:
 
 reanmed col 562 to "V562" (was V1 from original cbind)
 
-created vector containing selected column numbers
 
-created subset dataframe using those column numbers
+created subset dataframe using those column numbers, mean_std_df
 
 rename activity to meaningful names
 
-create vector of selected column names and apply
+create vector of selected column names (colnames) and apply
 
-use ddply from the plyr package to calculate mean based on Activity
+use ddply from the plyr package to calculate mean based on Activity and write to dataframe final_data
 
 write the data out to a file called tidy_data.txt using write.table
 
